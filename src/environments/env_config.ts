@@ -5,6 +5,6 @@ export const GLOBAL_CONFIG = {
         message: '/messageservice',
         collegefootball: '/collegefootballscheduleservice',        
     },
-    message_service_refresh_rate: 10 * 1000,
+    message_service_refresh_rate: 1000 * 1000,
 
 }

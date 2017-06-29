@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsoleLoggerService } from "../../../service/logger/console-logger.service";
 import { MessageService } from "../../../service/backendrepository/restfull/message.service";
-import { CollegeFootballSchedule } from "../../../model/college-football-schedule";
 
 @Component( {
     selector: 'app-message',
@@ -11,28 +10,34 @@ import { CollegeFootballSchedule } from "../../../model/college-football-schedul
 
 export class MessageComponent implements OnInit {
 
-    footballSchedules: CollegeFootballSchedule[];
-    // pager object
+    totalItemCount: number;
+    itemPerPage: number;
+    startItemIndex: number;
+    endItemIndex: number;
 
-    constructor( private logger: ConsoleLoggerService, private messageService: MessageService) {
+
+    constructor( private logger: ConsoleLoggerService, private messageService: MessageService ) {
         logger.log( "MessageComponent instance" );
+        this.itemPerPage = 25;
+        this.startItemIndex = 0;
+        this.endItemIndex = this.itemPerPage;
     }
 
+    /**
+     * 
+     */
     ngOnInit() {
-        this.messageService.collegeFootballSchedule.subscribe(( footballSchedules ) => {
-
-            this.footballSchedules = new Array<CollegeFootballSchedule>( footballSchedules.length );
-            let i: number = 0;
-            for ( let item of footballSchedules ) {
-                this.footballSchedules[i++] = item;
-            }
-        } );
+        this.logger.log( "MessageComponent ngOnInit", "" );
     }
 
+    /**
+     * 
+     */
     ngAfterViewInit() {
-        this.logger.log( "MessageComponent ngAfterViewInit" );
+        this.logger.log( "MessageComponent ngAfterViewInit", "" );
 
-        this.messageService.getCollegeFootballSchedule();
-    } 
+    }
+
+
 
 }

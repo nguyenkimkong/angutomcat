@@ -8,7 +8,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { requestOptionsProvider } from "./service/core/default-request-options.service";
 import { AppRoutingModule } from "./app-routing.module";
 import { FeatureModule } from "./module/feature/feature.module";
-import {PopoverModule} from "ngx-popover";
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 @NgModule( {
     declarations: [
@@ -16,8 +16,7 @@ import {PopoverModule} from "ngx-popover";
     ],
     imports: [
         FormsModule, BrowserModule, AppRoutingModule, HttpModule,
-        JsonpModule, PopoverModule,
-        CoreModule, FeatureModule
+        JsonpModule, CoreModule, FeatureModule,PopoverModule.forRoot()
     ],
     providers: [serviceInjectables, requestOptionsProvider],
     bootstrap: [AppComponent]

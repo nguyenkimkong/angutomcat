@@ -1,0 +1,29 @@
+<button type="button" class="btn btn-link" id="popover_setting_cof"
+	data-popover-content="#setting_cof">
+	<span class="glyphicon glyphicon-cog"></span>
+</button>
+<div id="setting_cof" class="hidden setting_cof">
+	<div class="popover-body">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>Item per page:</th>
+								<td><select (ngModel)="itemPerPage">
+										<option *ngFor="let c of itemPerPages" [attr.value]="c">{{c}}</option>
+								</select></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<button id="click_me" class='click_me'
+			(click)='doSomethingOnPopover()'>Click</button>
+
+	</div>
+
+</div>
